@@ -25,19 +25,20 @@ const cube = {
   z: 5
 }
 
-let attempts = 0;
+const T = 'Time passed'
+let deadends = 0;
 
-console.log(Date.now());
-console.time();
+console.log(`Start timestamp: ${Date.now()}\n`);
+console.time(T);
 const result = putNextPiece([], [...allPieces])
-if (!result) {
-  console.log('No result found');
-} else {
+if (result) {
   console.log(JSON.stringify(result, null, 2));
+} else {
+  console.log('No solution found');
 }
-console.log(Date.now());
-console.timeEnd();
-console.log(`Total attempts: ${attempts}`);
+console.timeEnd(T);
+console.log(`Total dead ends: ${deadends}\n`);
+console.log(`End timestamp: ${Date.now()}`);
 
 function putNextPiece(occupiedPoints, pieces, result = []) {
   if (pieces.length === 0) {
@@ -53,10 +54,6 @@ function putNextPiece(occupiedPoints, pieces, result = []) {
           const cantFit = points.some(point => occupiedPoints.includes(point));
           if (cantFit) {
             continue;
-          }
-          if(++attempts % 10**6 === 0) {
-            console.log(attempts);
-            console.timeLog();
           }
           const newOccupiedPoints = [...occupiedPoints, ...points];
           const finalResult = putNextPiece(
@@ -74,5 +71,9 @@ function putNextPiece(occupiedPoints, pieces, result = []) {
         }
       }
     }
+  }
+  if(++deadends % 10**5 === 0) {
+    console.timeLog(T);
+    console.log(`Dead ends so far: ${deadends}\n`);
   }
 }
