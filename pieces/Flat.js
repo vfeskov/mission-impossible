@@ -1,5 +1,7 @@
 'use strict';
-module.exports = {
+const generateVariantPoints = require('./generateVariantPoints');
+
+const Flat = {
   name: 'Flat',
   variants: [
     {
@@ -34,3 +36,7 @@ module.exports = {
     }
   ]
 }
+
+generateVariantPoints(Flat);
+
+module.exports = Flat;

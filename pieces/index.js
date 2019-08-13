@@ -2,6 +2,7 @@
 const Tiny = require('./Tiny');
 const Flat = require('./Flat');
 const Big = require('./Big');
+const Cube = require('./Cube');
 
 const BIG = 0;
 const FLAT = 1;
@@ -19,12 +20,6 @@ const allPieces = [
   ...Array(6).fill(BIG),
 ];
 
-const cube = {
-  x: 5,
-  y: 5,
-  z: 5
-}
-
 module.exports = {
   Tiny,
   Flat,
@@ -34,5 +29,5 @@ module.exports = {
   TINY,
   pieceTypes,
   allPieces,
-  cube
+  Cube
 }

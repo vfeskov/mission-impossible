@@ -1,5 +1,7 @@
 'use strict';
-module.exports = {
+const generateVariantPoints = require('./generateVariantPoints');
+
+const Big = {
   name: 'Big',
   variants: [
     {
@@ -18,4 +20,8 @@ module.exports = {
       z: 2
     }
   ]
-}
+};
+
+generateVariantPoints(Big);
+
+module.exports = Big;

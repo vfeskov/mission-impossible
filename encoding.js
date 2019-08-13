@@ -1,7 +1,7 @@
 'use strict';
-const { cube, pieceTypes } = require('./pieces');
+const { Cube, pieceTypes } = require('./pieces');
 
-const maxCoordinate = Math.max(cube.x, cube.y, cube.z) + 1;
+const maxCoordinate = Math.max(Cube.x, Cube.y, Cube.z) + 1;
 const { encodingMap, decodingMap, encodingId } = Object.keys(pieceTypes).reduce((r, type) => {
   const vs = pieceTypes[type].variants;
   for(let vi = 0; vi < vs.length; vi++) {
@@ -26,6 +26,7 @@ function decodePlacements(placements) {
     if (piece) {
       placement.name = pieceTypes[piece].name;
     }
+    placement.variant = { x: pv.x, y: pv.y, z: pv.z };
     return placement;
   });
 }
