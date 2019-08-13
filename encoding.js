@@ -49,7 +49,7 @@ function decodePiecePlacement(code) {
 }
 
 function getPlacementsKey(placements) {
-  return placements.sort((a, b) => a - b).join('-');
+  return placements.sort((a, b) => a - b);
 }
 
 module.exports = {
