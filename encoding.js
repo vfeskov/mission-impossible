@@ -1,4 +1,5 @@
 'use strict';
+const mem = require('mem');
 const { cube, pieceTypes } = require('./pieces');
 
 const maxCoordinate = Math.max(cube.x, cube.y, cube.z) + 1;
@@ -54,7 +55,7 @@ function getPlacementsKey(placements) {
 
 module.exports = {
   decodePlacements,
-  encodePiecePlacement,
+  encodePiecePlacement: mem(encodePiecePlacement),
   decodePiecePlacement,
   getPlacementsKey
 }
