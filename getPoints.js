@@ -1,14 +1,14 @@
 const mem = require('mem');
 
-module.exports = mem(function getPoints(variantX, variantY, variantZ, coordsX, coordsY, coordsZ) {
+module.exports = mem(function getPoints(variant, coords) {
   const result = [];
-  for (let x = 0; x < variantX; x++) {
-    for (let y = 0; y < variantY; y++) {
-      for (let z = 0; z < variantZ; z++) {
+  for (let x = 0; x < variant.x; x++) {
+    for (let y = 0; y < variant.y; y++) {
+      for (let z = 0; z < variant.z; z++) {
         result.push(
-          (x + coordsX) * 25 +
-          (y + coordsY) * 5 +
-          z + coordsZ
+          (x + coords.x) * 25 +
+          (y + coords.y) * 5 +
+          z + coords.z
         );
       }
     }

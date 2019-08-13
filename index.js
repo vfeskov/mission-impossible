@@ -1,3 +1,4 @@
+'use strict';
 const getPoints = require('./getPoints');
 const Tiny = require('./pieces/Tiny');
 const Flat = require('./pieces/Flat');
@@ -42,7 +43,7 @@ console.log(`End timestamp: ${Date.now()}`);
 
 function putNextPiece(occupiedPoints, pieces, result = []) {
   if (pieces.length === 0) {
-    return result.map(i => Object.assign(i, { piece: pieceTypes[i.piece].name }));
+    return beautifyResult(result);
   }
   const otherPieces = [...pieces];
   const piece = otherPieces.pop();
@@ -50,7 +51,7 @@ function putNextPiece(occupiedPoints, pieces, result = []) {
     for (let x = 0; x < cube.x - variant.x + 1; x++) {
       for (let y = 0; y < cube.y - variant.y + 1; y++) {
         for (let z = 0; z < cube.z - variant.z + 1; z++) {
-          const points = getPoints(variant.x, variant.y, variant.z, x, y, z);
+          const points = getPoints(variant, { x, y, z });
           const cantFit = points.some(point => occupiedPoints.includes(point));
           if (cantFit) {
             continue;
@@ -72,8 +73,18 @@ function putNextPiece(occupiedPoints, pieces, result = []) {
       }
     }
   }
-  if(++deadends % 10**5 === 0) {
+  if(++deadends % 10**4 === 0) {
     console.timeLog(T);
-    console.log(`Dead ends so far: ${deadends}\n`);
+    console.log(`Latest dead end: ${JSON.stringify(beautifyResult(result))}`)
+    console.log(`Dead ends so far: ${deadends / 10**6} million\n`);
+    global.gc();
   }
+}
+
+function beautifyResult(result) {
+  const r =  result.map(i => {
+    i.name = pieceTypes[i.piece].name;
+    return i;
+  });
+  return r;
 }
