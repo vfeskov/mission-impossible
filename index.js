@@ -1,6 +1,7 @@
 'use strict';
 const { pieceTypes, allPieces, Cube } = require('./pieces');
-const { decodePlacements, getPlacementsKey, encodePiecePlacement } = require('./encoding');
+const { decodeCuboids } = require('./decodeCuboids');
+const { cuboidsIntersect } = require('./geometry');
 
 const T = 'Time passed'
 // const uniqueDeadends = {};
@@ -9,9 +10,9 @@ let deadendsCount = 0;
 
 console.log(`Start timestamp: ${Date.now()}\n`);
 console.time(T);
-const placements = putNextPiece({}, [...allPieces])
-if (placements) {
-  console.log(`SOLUTION: ${JSON.stringify(placements, null, 2)}`);
+const solution = putNextPiece([], [...allPieces])
+if (solution) {
+  console.log(`SOLUTION: ${JSON.stringify(decodeCuboids(solution), null, 2)}`);
 } else {
   console.log('NO SOLUTION FOUND :\'(');
 }
@@ -20,9 +21,9 @@ console.log(`Total dead ends: ${deadendsCount}`);
 // console.log(`Total unique dead ends: ${uniqueDeadendsCount}`);
 console.log(`End timestamp: ${Date.now()}`);
 
-function putNextPiece(occupiedPoints, pieces, placements = []) {
+function putNextPiece(occupied, pieces) {
   if (pieces.length === 0) {
-    return decodePlacements(placements);
+    return occupied;
   }
   // const placementsKey = getPlacementsKey(placements);
   // const placementsAreDeadend = typeof uniqueDeadends[placementsKey] !== 'undefined';
@@ -30,15 +31,17 @@ function putNextPiece(occupiedPoints, pieces, placements = []) {
     const otherPieces = [...pieces];
     const piece = otherPieces.pop();
     const variants = pieceTypes[piece].variants;
+    const cuboids = pieceTypes[piece].cuboids;
     for (let vi = variants.length - 1; vi >= 0; vi--) {
       const variant = variants[vi];
-      for (let x = Cube.x - variant.x; x >= 0; x--) {
-        for (let y = Cube.y - variant.y; y >= 0; y--) {
-          for (let z = Cube.z - variant.z; z >= 0; z--) {
-            const points = variant.points[x][y][z];
+      const variantCuboids = cuboids[vi];
+      for (let x = Cube[0] - variant[0]; x >= 0; x--) {
+        for (let y = Cube[1] - variant[1]; y >= 0; y--) {
+          for (let z = Cube[2] - variant[2]; z >= 0; z--) {
+            const cuboid = variantCuboids[x][y][z];
             let cantFit = false;
-            for (let pi = points.length - 1; pi >= 0; pi--) {
-              if (typeof occupiedPoints[points[pi]] !== 'undefined') {
+            for(let i = occupied.length - 1; i >=0; i--) {
+              if (cuboidsIntersect(occupied[i], cuboid)) {
                 cantFit = true;
                 break;
               }
@@ -46,17 +49,12 @@ function putNextPiece(occupiedPoints, pieces, placements = []) {
             if (cantFit) {
               continue;
             }
-            const newOccupiedPoints = Object.assign({}, occupiedPoints);
-            for (let pi = points.length - 1; pi >= 0; pi--) {
-              newOccupiedPoints[points[pi]] = null;
-            }
-            const finalPlacements = putNextPiece(
-              newOccupiedPoints,
-              otherPieces,
-              [...placements, encodePiecePlacement(variant, x, y, z)]
+            const solution = putNextPiece(
+              [...occupied, cuboid],
+              otherPieces
             );
-            if (finalPlacements) {
-              return finalPlacements;
+            if (solution) {
+              return solution;
             }
           }
         }
@@ -65,9 +63,9 @@ function putNextPiece(occupiedPoints, pieces, placements = []) {
   //   uniqueDeadends[placementsKey] = null;
   //   uniqueDeadendsCount++;
   // }
-  if(++deadendsCount % 10**5 === 0) {
+  if(++deadendsCount % 10**6 === 0) {
     console.timeLog(T);
-    console.log(`Latest dead end: ${JSON.stringify(decodePlacements(placements))}`)
+    console.log(`Latest dead end: ${JSON.stringify(decodeCuboids(occupied))}`)
     console.log(`Dead ends so far: ${deadendsCount / 10**6} million\n`);
     // console.log(`Unique dead ends so far: ${uniqueDeadendsCount}\n`);
     global.gc();

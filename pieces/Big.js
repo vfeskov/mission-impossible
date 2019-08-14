@@ -1,27 +1,15 @@
 'use strict';
-const generateVariantPoints = require('./generateVariantPoints');
+const generateCuboids = require('./generateCuboids');
 
 const Big = {
   name: 'Big',
   variants: [
-    {
-      x: 2,
-      y: 3,
-      z: 2
-    },
-    {
-      x: 2,
-      y: 2,
-      z: 3
-    },
-    {
-      x: 3,
-      y: 2,
-      z: 2
-    }
+    [2, 3, 2],
+    [2, 2, 3],
+    [3, 2, 2]
   ]
 };
 
-generateVariantPoints(Big);
+generateCuboids(Big);
 
 module.exports = Big;

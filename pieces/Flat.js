@@ -1,42 +1,18 @@
 'use strict';
-const generateVariantPoints = require('./generateVariantPoints');
+const generateCuboids = require('./generateCuboids');
 
 const Flat = {
   name: 'Flat',
   variants: [
-    {
-      x: 2,
-      y: 1,
-      z: 4
-    },
-    {
-      x: 4,
-      y: 1,
-      z: 2
-    },
-    {
-      x: 1,
-      y: 2,
-      z: 4
-    },
-    {
-      x: 4,
-      y: 2,
-      z: 1
-    },
-    {
-      x: 2,
-      y: 4,
-      z: 1
-    },
-    {
-      x: 1,
-      y: 4,
-      z: 2
-    }
+    [2, 1, 4],
+    [4, 1, 2],
+    [1, 2, 4],
+    [4, 2, 1],
+    [2, 4, 1],
+    [1, 4, 2]
   ]
 }
 
-generateVariantPoints(Flat);
+generateCuboids(Flat);
 
 module.exports = Flat;

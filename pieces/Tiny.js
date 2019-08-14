@@ -1,17 +1,13 @@
 'use strict';
-const generateVariantPoints = require('./generateVariantPoints');
+const generateCuboids = require('./generateCuboids');
 
 const Tiny = {
   name: 'Tiny',
   variants: [
-    {
-      x: 1,
-      y: 1,
-      z: 1
-    }
+    [1, 1, 1]
   ]
 };
 
-generateVariantPoints(Tiny);
+generateCuboids(Tiny);
 
 module.exports = Tiny;
