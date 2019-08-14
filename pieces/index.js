@@ -15,9 +15,9 @@ const pieceTypes = {
 }
 
 const allPieces = [
-  ...Array(5).fill(TINY),
-  ...Array(6).fill(FLAT),
   ...Array(6).fill(BIG),
+  ...Array(6).fill(FLAT),
+  ...Array(5).fill(TINY)
 ];
 
 module.exports = {
