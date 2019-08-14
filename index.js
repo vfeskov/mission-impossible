@@ -63,7 +63,7 @@ function putNextPiece(occupied, pieces) {
   //   uniqueDeadends[placementsKey] = null;
   //   uniqueDeadendsCount++;
   // }
-  if(++deadendsCount % 10**6 === 0) {
+  if(++deadendsCount % 10**5 === 0) {
     console.timeLog(T);
     console.log(`Latest dead end: ${JSON.stringify(decodeCuboids(occupied))}`)
     console.log(`Dead ends so far: ${deadendsCount / 10**6} million\n`);
