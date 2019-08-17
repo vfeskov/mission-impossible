@@ -1,6 +1,14 @@
 # Solution
 It took 82 hours and detected 12 billion dead ends: 
 
+<img src="https://github.com/vfeskov/mission-impossible/raw/master/solution/1.jpeg" />
+
+<img src="https://github.com/vfeskov/mission-impossible/raw/master/solution/2.jpeg" />
+
+<img src="https://github.com/vfeskov/mission-impossible/raw/master/solution/3.jpeg" />
+
+<img src="https://github.com/vfeskov/mission-impossible/raw/master/solution/4.jpeg" />
+
 ```
 [
   {
@@ -226,11 +234,3 @@ It took 82 hours and detected 12 billion dead ends:
   }
 ]
 ```
-
-<img src="https://github.com/vfeskov/mission-impossible/raw/solution/1.jpeg" />
-
-<img src="https://github.com/vfeskov/mission-impossible/raw/solution/2.jpeg" />
-
-<img src="https://github.com/vfeskov/mission-impossible/raw/solution/3.jpeg" />
-
-<img src="https://github.com/vfeskov/mission-impossible/raw/solution/4.jpeg" />

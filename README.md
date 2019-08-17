@@ -1,7 +1,7 @@
 # Mission Impossible puzzle from Illuseum Berlin
 
 Objective is to put all pieces inside the box:
-<img src="https://github.com/vfeskov/mission-impossible/raw/puzzle.jpeg" />
+<img src="https://github.com/vfeskov/mission-impossible/raw/master/puzzle.jpeg" />
 
 This script brute-forces the puzzle by putting different variants of each piece one by one into every possible coordinates. It checks if a piece can fit by checking intersection of its cuboid with already fitted pieces. 
 
