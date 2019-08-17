@@ -1,0 +1,233 @@
+Commit ID b7dfd6ccb6f33f42727159b182ff9e39ac2df504 was launched on c5.large AWS server and I continued improving the code leaving the launched version untouched
+It started with nothing and finished in 82 hours
+It found 12 187 550 929 dead ends where it couldn't put another piece
+The average speed was: 41 283 dead ends per second
+
+FULL LOG:
+Start timestamp: 1565727016201
+SOLUTION: [
+  {
+    "variant": {
+      "x": 3,
+      "y": 2,
+      "z": 2
+    },
+    "coords": {
+      "x": 2,
+      "y": 3,
+      "z": 2
+    },
+    "name": "Big"
+  },
+  {
+    "variant": {
+      "x": 3,
+      "y": 2,
+      "z": 2
+    },
+    "coords": {
+      "x": 0,
+      "y": 0,
+      "z": 1
+    },
+    "name": "Big"
+  },
+  {
+    "variant": {
+      "x": 2,
+      "y": 2,
+      "z": 3
+    },
+    "coords": {
+      "x": 3,
+      "y": 1,
+      "z": 2
+    },
+    "name": "Big"
+  },
+  {
+    "variant": {
+      "x": 2,
+      "y": 2,
+      "z": 3
+    },
+    "coords": {
+      "x": 0,
+      "y": 2,
+      "z": 0
+    },
+    "name": "Big"
+  },
+  {
+    "variant": {
+      "x": 2,
+      "y": 3,
+      "z": 2
+    },
+    "coords": {
+      "x": 2,
+      "y": 2,
+      "z": 0
+    },
+    "name": "Big"
+  },
+  {
+    "variant": {
+      "x": 2,
+      "y": 3,
+      "z": 2
+    },
+    "coords": {
+      "x": 1,
+      "y": 0,
+      "z": 3
+    },
+    "name": "Big"
+  },
+  {
+    "variant": {
+      "x": 1,
+      "y": 4,
+      "z": 2
+    },
+    "coords": {
+      "x": 4,
+      "y": 1,
+      "z": 0
+    },
+    "name": "Flat"
+  },
+  {
+    "variant": {
+      "x": 1,
+      "y": 4,
+      "z": 2
+    },
+    "coords": {
+      "x": 0,
+      "y": 0,
+      "z": 3
+    },
+    "name": "Flat"
+  },
+  {
+    "variant": {
+      "x": 4,
+      "y": 2,
+      "z": 1
+    },
+    "coords": {
+      "x": 1,
+      "y": 3,
+      "z": 4
+    },
+    "name": "Flat"
+  },
+  {
+    "variant": {
+      "x": 4,
+      "y": 2,
+      "z": 1
+    },
+    "coords": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "name": "Flat"
+  },
+  {
+    "variant": {
+      "x": 2,
+      "y": 1,
+      "z": 4
+    },
+    "coords": {
+      "x": 3,
+      "y": 0,
+      "z": 1
+    },
+    "name": "Flat"
+  },
+  {
+    "variant": {
+      "x": 2,
+      "y": 1,
+      "z": 4
+    },
+    "coords": {
+      "x": 0,
+      "y": 4,
+      "z": 0
+    },
+    "name": "Flat"
+  },
+  {
+    "variant": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "coords": {
+      "x": 4,
+      "y": 0,
+      "z": 0
+    },
+    "name": "Tiny"
+  },
+  {
+    "variant": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "coords": {
+      "x": 3,
+      "y": 1,
+      "z": 1
+    },
+    "name": "Tiny"
+  },
+  {
+    "variant": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "coords": {
+      "x": 2,
+      "y": 2,
+      "z": 2
+    },
+    "name": "Tiny"
+  },
+  {
+    "variant": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "coords": {
+      "x": 1,
+      "y": 3,
+      "z": 3
+    },
+    "name": "Tiny"
+  },
+  {
+    "variant": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "coords": {
+      "x": 0,
+      "y": 4,
+      "z": 4
+    },
+    "name": "Tiny"
+  }
+]
+Time passed: 295222482.888ms
+Total dead ends: 12187550929
+End timestamp: 1566027430442
