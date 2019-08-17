@@ -1,5 +1,5 @@
 # Solution
-It took 82 hours and detected 12 billion dead ends: 
+It took 82 hours on c5.large AWS instance and detected 12 billion dead ends: 
 
 <img src="https://github.com/vfeskov/mission-impossible/raw/master/solution/1.jpeg" />
 
