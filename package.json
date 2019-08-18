@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node --expose-gc index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node geometry.test.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "assert": "^2.0.0",
-    "mem": "^5.1.1"
+  "dependencies": {},
+  "devDependencies": {
+    "assert": "^2.0.0"
   }
 }

@@ -8,7 +8,7 @@ class Cache {
     if (process.env.LOGGED_PIECES && process.env.DEADENDS_COUNT) {
       this.loadFromLog(JSON.parse(process.env.LOGGED_PIECES), Number(process.env.DEADENDS_COUNT));
       return;
-    } 
+    }
     try {
       const json = JSON.parse(fs.readFileSync('cache.json'));
       this.deadends = json.deadends;
@@ -17,7 +17,6 @@ class Cache {
       this.deadends = newDeadends();
       this.deadendsCount = 0;
     }
-    
   }
 
   save() {
@@ -27,7 +26,7 @@ class Cache {
       deadendsCount: this.deadendsCount
     }));
   }
-  
+
   loadFromLog(loggedPieces, deadendsCount) {
     this.deadends = newDeadends();
     this.deadendsCount = deadendsCount;
@@ -45,7 +44,6 @@ class Cache {
         return { vi, x: p.coords.x, y: p.coords.y, z: p.coords.z };
       });
 
-
     try {
       while(true) {
         makePrevPieces();
@@ -56,18 +54,16 @@ class Cache {
         }
         const p = pieces[PIECE_INDEX_TO_CACHE_UP_TO];
         deadends[p.vi][p.x][p.y][p.z] = null;
-      } 
+      }
     } catch(e) {
-      console.error(e);
     }
-    
-    
+
     function makePrevPieces(pi = PIECE_INDEX_TO_CACHE_UP_TO) {
       const p = pieces[pi];
       const v = Big.variants[p.vi];
       if (p.z + 1 <= Cube[2] - v[2]) {
         return p.z++;
-      } 
+      }
       p.z = 0;
       if (p.y + 1 <= Cube[1] - v[1]) {
         return p.y++;
